@@ -22,7 +22,6 @@ import Foundation
     }
 
     func clear() {
-        NSLog("clear")
         drawingQueue.async { [weak self] in
             for i in 0 ..< bufferSize {
                 self?.bitmapBuffer[i] = 0
@@ -32,7 +31,6 @@ import Foundation
     }
 
     func display(sprite: [UInt8], at coordinate: DisplayCoordinate) -> Bool {
-        NSLog("display")
         var erased = false
         drawingQueue.sync {
             for spriteY in 0..<sprite.count {

@@ -60,13 +60,11 @@ import Foundation
     }
 
     func waitForKeyPress() -> UInt8 {
-        NSLog("simulator waiting for key")
         keyPressSemaphore.wait()
         var key: UInt8 = 0
         DispatchQueue.main.sync {
             key = lastKeyPressed
         }
-        NSLog("Sending simulator key=\(key)")
         return key
     }
 

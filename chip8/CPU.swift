@@ -33,7 +33,6 @@ class CPU: Resettable {
     }
 
     func cycle() throws {
-        NSLog("cycling")
         let instruction = try fetchNextInstruction()
         let operation = try decode(instruction)
         try operation.execute()
