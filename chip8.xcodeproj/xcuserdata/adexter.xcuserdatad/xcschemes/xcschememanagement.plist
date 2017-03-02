@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CHIP8.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>CHIP8Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>CHIP8VM.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>chip8.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +28,31 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>869C10961E67380F00348DAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>869C10B91E689D3200348DAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>869C10C11E689D3200348DAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>869C10DD1E689DB700348DAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>869C10ED1E689DB700348DAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>869C10F81E689DB700348DAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
