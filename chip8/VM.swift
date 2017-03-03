@@ -16,7 +16,6 @@ public class VM {
         self.memory = memory
         self.keyboard = keyboard
         self.display = display
-
         self.cpuQueue = DispatchQueue(label: "CHIP8VM.VM.cpu")
     }
 
@@ -29,6 +28,7 @@ public class VM {
         cpuTimer?.cancel()
         cpu.reset()
         memory.reset()
+        display.reset()
         try storeFont(in: memory)
         try reloadROM()
         runCpu()
@@ -41,7 +41,7 @@ public class VM {
 
     private var rom: (() throws -> [UInt8])?
 
-    private let cpuQueue: DispatchQueue
+    private var cpuQueue: DispatchQueue
     private var cpuTimer: DispatchSourceTimer?
 
     private func reloadROM() throws {
@@ -51,6 +51,7 @@ public class VM {
     }
 
     private func runCpu() {
+        cpuQueue = DispatchQueue(label: "CHIP8VM.VM.cpu")
         cpuTimer = DispatchSource.makeTimerSource(queue: cpuQueue)
         cpuTimer?.scheduleRepeating(
             deadline: .now(),
@@ -68,7 +69,7 @@ public class VM {
 
 }
 
-protocol Resettable {
+public protocol Resettable {
 
     func reset()
 

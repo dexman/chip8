@@ -50,7 +50,11 @@ import Foundation
         return erased
     }
 
-    func redrawBackingBitmap() {
+    func reset() {
+        clear()
+    }
+
+    private func redrawBackingBitmap() {
         let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
         let optionalContext = CGContext(

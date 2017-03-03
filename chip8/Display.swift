@@ -13,7 +13,7 @@ public struct DisplayCoordinate {
     public let y: UInt8
 }
 
-public protocol Display {
+public protocol Display: Resettable {
 
     func clear()
 
@@ -30,6 +30,10 @@ public class DefaultDisplay: Display {
     public func display(sprite: [UInt8], at coordinate: DisplayCoordinate) -> Bool {
         print("Displayed \(sprite.count)-byte sprite at (\(coordinate.x),\(coordinate.y))")
         return false
+    }
+
+    public func reset() {
+        clear()
     }
     
 }
