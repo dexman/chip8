@@ -36,7 +36,18 @@ class CPU: Resettable {
         let instruction = try fetchNextInstruction()
         let operation = try decode(instruction)
         try operation.execute()
-        // TODO Timers.
+
+        let now = Date()
+        if now.timeIntervalSince(lastTimerTick) > 1.0 / 60.0 {
+            if registers.delay > 0 {
+                registers.delay -= 1
+            }
+            if registers.sound > 0 {
+                // TODO: Implement sound
+                registers.sound -= 1
+            }
+            lastTimerTick = now
+        }
     }
 
     func reset() {
@@ -44,6 +55,8 @@ class CPU: Resettable {
         programCounter.reset()
         stack.reset()
     }
+
+    private var lastTimerTick = Date.distantPast
 
     private func fetchNextInstruction() throws -> Instruction {
         var buffer = [UInt8](repeating: 0, count: 2)
